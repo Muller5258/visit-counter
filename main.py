@@ -15,4 +15,4 @@ def visit():
         conn.execute("CREATE TABLE IF NOT EXISTS visits (id SERIAL PRIMARY KEY, at TIMESTAMPTZ DEFAULT now())")
         conn.execute("INSERT INTO visits DEFAULT VALUES")
         count = conn.execute("SELECT count(*) FROM visits").fetchone()[0]
-    return {"visits": count}
+    return {"visits": count, "version": 2}
